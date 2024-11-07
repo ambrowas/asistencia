@@ -1,0 +1,19 @@
+{
+    "name": "asistencia",
+    "version": "1.0.0",
+    "description": "Herramienta diseñada para la gestión de asistencia y puntualidad de los empleados con el objetivo de mejorar la productividad",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "dependencies": {
+        "electron": "^28.1.4",
+        "firebase": "^10.8.0"
+    },
+    "devDependencies": {
+        "@electron/rebuild": "^3.6.0"
+    }
+    
+    
+}
+

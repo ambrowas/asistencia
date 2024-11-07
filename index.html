@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <link rel="stylesheet" href="styles.css">
+    <audio id="popupAudio" src="/Users/elebi/Documents/AsisTNci@/popup.mp3" hidden></audio>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap JS (make sure jQuery is included before this) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="embassy-container">
+        <p class="embassy-text">EMBAJADA DE GUINEA ECUATORIAL EN WASHINGTON DC</p>
+        <img src="Equatorial Guinea.png" alt="Equatorial Guinea Flag" class="embassy-flag">
+    </div>
+    <div class="centered-content">
+        <div class="logo-container">
+            <img src="asistnciA.png" alt="Logo" class="logo"/>
+        </div>
+        <p id="welcomeMessage">Bienvenido</p>
+    </div>
+    <div id="popupContainer" style="display:none;">
+        <div id="popupContent"></div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="attendanceModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Popup Title</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="quote"></p>
+                    <p id="author"></p>
+                    <p id="observation"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="dismissBtn">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button id="ingresar-btn">INGRESAR</button>
+        <button id="informe-btn">INFORMES</button>
+        <button id="configuracion-btn">CONFIGURACION</button>
+        <button id="acerca-btn">ACERCA NUESTRA</button>
+    </div>
+
+    <script src="popup.js"></script> <!-- Ensure this is the correct path to your script -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ingresarBtn = document.getElementById('ingresar-btn');
+            const userName = localStorage.getItem('userName');
+
+            if (userName) {
+                ingresarBtn.textContent = 'INGRESAR';
+                ingresarBtn.addEventListener('click', () => {
+                    console.log('About to send IPC message to open window');
+                    window.electronAPI.openWindow('registro.html');
+                    console.log('IPC message sent');
+                });
+            } else {
+                ingresarBtn.textContent = 'REGISTRAR';
+                ingresarBtn.addEventListener('click', () => {
+                    window.electronAPI.openWindow('registro.html');
+                });
+            }
+
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            if (userName) {
+                welcomeMessage.textContent = `Bienvenido ${userName}`;
+            } else {
+                console.log("No userName found, welcome message not set");
+            }
+            
+        });
+    </script>
+
+    <script>
+        // If you have additional scripts that need to be included
+    </script>
+</body>
+</html>

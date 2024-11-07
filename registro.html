@@ -1,0 +1,91 @@
+
+<html>
+<head>
+    <title>REGISTRO DE EMPLEADOS</title>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card-body py-md-4">
+                        <form id="registrationForm">
+                            <div class="form-group text-center">                             
+                                <img id="photoPlaceholder" src="avatar.png" alt="Upload Photo" style="cursor: pointer;" />
+                                <input type="file" id="foto" name="foto" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de Nacimiento">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Repetir Contraseña">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" id="telefono" placeholder="Teléfono">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="posicion" placeholder="Posición">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="nombrecontactoEmergencia" placeholder="Contacto de Emergencia">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="numerocontactoEmergencia" placeholder="Tel. de Emergencia">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                <button class="btn btn-primary mb-3 equal-btn">REGISTRAR</button>
+                                <button class="btn btn-secondary mb-3 equal-btn" onclick="goBack()">VOLVER</button>
+                                
+                            </div>
+                            
+                            
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+<script>
+    function goBack() {
+        // Logic to go back, possibly navigate to a previous page
+        window.history.back();
+    }
+</script>
+
+<!-- Your custom script -->
+<script src="registro.js"></script>
+</body>
+</html>
+
